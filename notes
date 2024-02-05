@@ -1,0 +1,25 @@
+sudo add-apt-repository multiverse; sudo dpkg --add-architecture i386; sudo apt update
+sudo apt install steamcmd
+
+
+steamcmd +login anonymous +app_update 1007 validate +app_update 1963720 validate +quit
+
+
+
+
+cat /etc/systemd/system/corekeeper-server.service 
+[Unit]
+Description=CoreKeeper Dedicated Server
+After=network.target
+
+[Service]
+Type=simple
+User=jeffreyrobertbean
+WorkingDirectory=/home/jeffreyrobertbean/corekeeper-server
+ExecStart=/home/jeffreyrobertbean/corekeeper-server/_launch.sh
+KillMode=process
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
