@@ -23,3 +23,11 @@ RestartSec=30
 
 [Install]
 WantedBy=multi-user.target
+
+
+
+## upgrade 
+
+sudo systemctl stop corekeeper-server.service
+steamcmd +login anonymous +app_update 1007 validate +app_update 1963720 validate +quit
+sudo systemctl start corekeeper-server.service
